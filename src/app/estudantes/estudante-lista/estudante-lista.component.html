@@ -1,0 +1,27 @@
+<h1 class="display-5 text-center">Dados do estudante</h1>
+<div></div>
+
+<table class="table table-hover estudante-detalhes-table-width">
+    <thead align="center">
+        <th>Núm. da lista.</th>
+        <th>Nome</th>
+        <th>Nome da Filial</th>
+        <th>Número tel. dos pais</th>
+        <th>Editar?</th>
+        <th>Deletar?</th>
+    </thead>
+    <tbody align="center">
+        <tr *ngFor="let estudanteInfo of estudanteLista">
+            <td>{{estudanteInfo.numeroLista }}</td>
+            <td>{{estudanteInfo.nome}}</td>
+            <td>{{estudanteInfo.nomeFilial}}</td>
+            <td>{{estudanteInfo.guardiaoTelefoneNo}}</td>
+            <td><a class="btn text-warning" (click)="onEditar  (estudanteInfo)"><i class="fa fa-edit " title="Editar "></i></a></td>
+            <td><a class="btn text-danger " (click)="onDeletar (estudanteInfo)"><i class="fa fa-trash" title="Deletar"></i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="error" *ngIf="deletarMensagem">
+    <h5 class="text-dark">{{ deletarMensagem }}</h5>
+</div>
